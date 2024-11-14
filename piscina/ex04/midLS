@@ -1,0 +1,4 @@
+#!/bin/sh
+
+
+ls -lt | grep -v "^\." | awk '{name=""; for(i=9;i<=NF;i++) name = name $i (i==NF ? "" : " "); if ($1 ~ /^d/) print name"/"; else print name}' | tr '\n' ', ' | sed 's/,$//'
